@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "MDN Toolbar",
   "version": "1.0",
+  "description": "Just for fun",
   "content_scripts": [
     {
       "matches": [
