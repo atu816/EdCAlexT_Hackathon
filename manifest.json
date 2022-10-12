@@ -17,6 +17,9 @@
       "16": "images/icon16.png", // optional
       "24": "images/icon24.png", // optional
       "32": "./images/IMG_4957.png" // optional
-    }
+      }
+    },
+    "chrome_url_overrides": {
+      "newtab": "index.html"
   }
 }
