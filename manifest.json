@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "MDN Toolbar",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://developer.mozilla.org/en-US/*"],
+      "js": ["./main.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {              // optional
+    "16": "images/icon16.png",   // optional
+    "24": "images/icon24.png",   // optional
+    "32": "./images/IMG_4957.png"    // optional
+  }
+}
