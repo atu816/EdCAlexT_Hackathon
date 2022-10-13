@@ -79,10 +79,15 @@ const apiArr = [];
       })
     })
 
-    let cssIndex = 0;
+    let cssIndex = Math.floor(Math.random() * cssArr.length);
     let htmlIndex = 0;
-    let apiIndex = 0;
-    let jsIndex = 0;
+    let apiIndex = Math.floor(Math.random() * apiArr.length);
+    let jsIndex = Math.floor(Math.random() * jsArr.length);
+
+    localStorage.setItem('css', cssIndex,)
+    localStorage.setItem("html", htmlIndex,)
+    localStorage.setItem('api', apiIndex,)
+    localStorage.setItem('js', jsIndex,)
 
 
 // Header ref
@@ -90,26 +95,42 @@ let header = document.querySelector('header');
 // Toolbar container div
 let toolbar = document.createElement('div');
 toolbar.setAttribute('id', 'toolbar-container');
-// Need help title
+// Need help? title
 let help = document.createElement('div');
 help.setAttribute('id','help');
 help.innerText = 'Need help?'
 // Container center box
 let toolbarCenter = document.createElement('div');
 toolbarCenter.setAttribute('id', 'center-toolbar');
+// Shuffle Button
+let shuffle = document.createElement('div');
+shuffle.setAttribute('id', 'shuffle');
+shuffle.innerText = 'Want to ask someone else?'
+
 // Set default text
 toolbarCenter.innerText = 'Codesmith Helper Bar';
 // Append toolbar text to toolbar, toolbar to header
 toolbar.appendChild(help);
 toolbar.appendChild(toolbarCenter);
+toolbar.appendChild(shuffle);
 header.appendChild(toolbar);
 
 // Cases for each window
 if (window.location.href.includes('HTML')) {
-  toolbarCenter.innerText = `${htmlArr[htmlIndex].name} is the ${htmlArr[htmlIndex].role} who specializes in HTML`
-  htmlIndex++;
-  if (htmlIndex === htmlArr.length) htmlIndex = 0;
-}
+  console.log(htmlArr);
+  let htmlI = window.localStorage.getItem("html");
+  
+  // if (htmlI === htmlArr.length) {
+  //   htmlI = 0;
+  //   localStorage.setItem('html', htmlI);
+  // }
+  console.log(window.localStorage);
+  console.log('htmlI', htmlI)
+  toolbarCenter.innerText = `${htmlArr[htmlI].name} is the ${htmlArr[htmlI].role} who specializes in HTML`
+  htmlI++;
+  localStorage.setItem("html", htmlI);
+};
+
 if (window.location.href.includes('CSS')) {
   toolbarCenter.innerText = `${cssArr[cssIndex].name} is the ${cssArr[cssIndex].role} who specializes in CSS`
   cssIndex++;
@@ -124,3 +145,25 @@ if (window.location.href.includes('API')){
   toolbarCenter.innerText = `${apiArr[apiIndex].name} is the ${apiArr[apiIndex].role} who specializes in APIs`
   if (apiIndex === apiArr.length) apiIndex = 0;
 }
+
+
+// Timer shutdown
+let startTime = 60;
+// Create a timer to be displayed
+let timer = document.createElement('div');
+// timer.setAttribute()
+timer.innerText = startTime;
+shuffle.appendChild(timer);
+
+
+setInterval( () => {
+  startTime--;
+  timer.innerText = startTime;
+}, 1000);
+
+function timerStop() {
+  if(startTime === 0) {
+    
+  }
+}
+

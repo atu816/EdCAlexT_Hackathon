@@ -1,13 +1,128 @@
 #toolbar-container {
   border: solid blue;
-  background-color: #ffffff;
+  background-color: #505050;
   padding: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #e48080;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#center-toolbar, #help {
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #e48080
+#shuffle:hover {
+  cursor: pointer;
+  color: #e36a6a;
+  background-color: #ece9e9;
 }
+
+
+/*
+
+
+Mock Server (JSON Server): Backend Async Await 
+———
+Building out static assets when its time to deploy:
+
+Can use yarn build or…
+npm run build…
+
+Stop the dev server first, then run:
+
+CMD + C ( stop server )
+
+$ npm run build > this creates an optimized production build in a folder called build (can find at the top) = All my static assets, this is what I deploy and push to production, not the dev files(src) I’ve been working on.
+
+To do it locally, can install npm serve package globally:
+
+For Mac:
+$ sudo npm i -g serve > basic http server
+
+$ serve -s build -p 8000 > now in browser go to localhost:8000 (not the one you were developing on) 
+
+Check react dev tools (blue not orange) to confirm its the production build
+———
+
+Now can create a MOCK rest API with our own data with JSON server:
+
+$ npm i json-server (installs locally)
+
+Go to package.json >
+
+To run server, under “scripts” add {
+	“server”: “json-server —-watch db.json —-port 5000” } 
+
+> this server is now a mock backend or rest API
+
+Now run $npm run server > creates a db.json with all our data > can change the data
+
+Now run the dev server from a new tab, Open up a new tab in integrated terminal and open up a dev server too 
+
+$ npm start
+
+So now can exchange data, mock-style
+
+> edit data first to what you want to test, then edit/convert to json objects 1st before testing exchange of data:
+
+Can use browser/ or Postman
+
+fetch(GET), POST(send), PUT(update), DELETE, etc: filter, sort,…
+
+> 
+
+Concurrently, a package used to run multiple scripts with 1 command
+
+>
+
+Fetch data from mock backend being served on localhost:5000 (endpoint)
+
+useEffect( () => {
+	fetchFeedback( );
+}, [ ] );
+
+
+// define a func to fetch the feedback to set initial state with DATA
+
+const fetchFeedback = async ( ) => {
+
+	const response = await fetch(‘http://localhost:5000/…) <returns a promise>
+
+	const data = await response.json( )
+
+	setFeedback(data)
+}
+
+
+> can setup Proxy to not have to keep typing in http://localhost:5000..
+
+
+// Add feedback with DATA fetched from mock API
+
+
+const addFeedback = async (newFeedback) => {
+
+	const response = await fetch(‘http://localhost:5000/…, {
+		method: ‘POST’,
+		headers: {
+			‘Content-Type’: “application/json’,
+		body: JSON.stringify(newFeedback)
+		},
+
+	const data = await response.json( )
+
+	setFeedback([data, …feedback])
+};
+
+
+// Delete feedback from mock API
+
+
+const deleteFeedback = async (ID) => {
+
+	await fetch(‘http://localhost:5000/…, 
+							{ method: ‘DELETE’})
+
+	setFeedback(feedback.filter((item) => item.id !== id))
+}
+
+
+*/
