@@ -1,3 +1,5 @@
+
+
 const resources = [
   {
     name: "Katie Ahn",
@@ -90,6 +92,20 @@ const apiArr = [];
     localStorage.setItem('js', jsIndex,)
 
 
+const date = new Date()// use Date method 
+const hours = date.getHours()// to get the hour
+let timeOfDay
+
+if (hours < 12) {// depending on the hour display greeting
+    timeOfDay = "Good morning!"
+} else if (hours >= 12 && hours < 17) {
+    timeOfDay = "Good afternoon!"
+} else {
+    timeOfDay = "Good evening!"
+}
+console.log(timeOfDay)
+
+
 // Header ref
 let header = document.querySelector('header');
 // Toolbar container div
@@ -98,17 +114,17 @@ toolbar.setAttribute('id', 'toolbar-container');
 // Need help? title
 let help = document.createElement('div');
 help.setAttribute('id','help');
-help.innerText = 'Need help?'
+help.innerText = `${timeOfDay} Need some help?`
 // Container center box
 let toolbarCenter = document.createElement('div');
 toolbarCenter.setAttribute('id', 'center-toolbar');
 // Shuffle Button
 let shuffle = document.createElement('div');
 shuffle.setAttribute('id', 'shuffle');
-shuffle.innerText = 'Want to ask someone else?'
+// shuffle.innerText = 'Want to ask someone else?'
 
 // Set default text
-toolbarCenter.innerText = 'Codesmith Helper Bar';
+toolbarCenter.innerText = 'Codesmith Helper Bar is here for You.';
 // Append toolbar text to toolbar, toolbar to header
 toolbar.appendChild(help);
 toolbar.appendChild(toolbarCenter);
@@ -155,15 +171,52 @@ let timer = document.createElement('div');
 timer.innerText = startTime;
 shuffle.appendChild(timer);
 
+// store the setInterval function inside a var to use clearInterval later
+const timerFunc = 
 
 setInterval( () => {
-  startTime--;
-  timer.innerText = startTime;
-}, 1000);
+  if(startTime === 0) timerStop();// calls timerStop func if timer runs out
+  if(startTime !== 0) {// keeps going as long as time left
+    startTime--;
+    timer.innerText = startTime;
+  }
+}, 1000);// calls every 1 sec
 
 function timerStop() {
-  if(startTime === 0) {
-    
+  clearInterval(timerFunc);// ends countdown
+  window.alert("You've been here a while. Maybe it's time to take a break?");
+// displays window alert msg
+  timer.innerText = 'Good choice!'
+  return;
+   // can add more functionality to this
   }
-}
+
+
+  // toggle dark mode button
+  const toggle = document.createElement('button');
+  toggle.setAttribute('id', 'light-mode');
+  toggle.innerText = 'dark-mode'
+
+  let enabled = false;
+
+  toggle.addEventListener('click', () => {
+
+    if(enabled === true){
+        console.log("click", enabled)
+        toolbar.setAttribute('id', 'toolbar-container');
+        toggle.setAttribute('id', 'light-mode');
+    }
+
+    if(enabled === false){
+      console.log("click", enabled)
+      toolbar.setAttribute('id', 'toolbar-containerDark');
+      toggle.setAttribute('id', 'dark-mode');
+    }
+
+    enabled = !enabled
+
+  })
+
+  shuffle.appendChild(toggle)
+
 

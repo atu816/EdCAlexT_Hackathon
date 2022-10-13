@@ -1,18 +1,70 @@
 #toolbar-container {
-  border: solid blue;
-  background-color: #505050;
+  border: solid black;
+  background-color: lightcyan;
   padding: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #e48080;
+  color: black;
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+#toolbar-containerDark {
+	border: solid azure;
+	background-color: black;
+	padding: 2px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: azure;
+	font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  #light-mode{
+	font-weight: 500;
+	height: 25px;
+	font-size: 12px;
+	width: 100px;
+	border: 1px solid black;
+	background-color: aliceblue;
+	color:black;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+  }
+
+  #light-mode:focus{
+	outline: none;
+  }
+  
+  #light-mode:active{
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+  }
+
+  #dark-mode{
+	font-weight: 500;
+	height: 25px;
+	font-size: 12px;
+	width: 100px;
+	border: 1px solid azure;
+	background-color: black;
+	color:azure;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+  }
+
+  #dark-mode:focus{
+	outline: none;
+  }
+  
+  #dark-mode:active{
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+  }
 
 #shuffle:hover {
   cursor: pointer;
-  color: #e36a6a;
-  background-color: #ece9e9;
+  /* color: #e36a6a;
+  background-color: #ece9e9; */
 }
 
 
