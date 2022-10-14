@@ -164,7 +164,7 @@ if (window.location.href.includes('API')){
 
 
 // Timer shutdown
-let startTime = 60;
+let startTime = 10;
 // Create a timer to be displayed
 let timer = document.createElement('div');
 // timer.setAttribute()
@@ -205,12 +205,14 @@ function timerStop() {
         console.log("click", enabled)
         toolbar.setAttribute('id', 'toolbar-container');
         toggle.setAttribute('id', 'light-mode');
+        toggle.innerText = 'dark-mode'
     }
 
     if(enabled === false){
       console.log("click", enabled)
       toolbar.setAttribute('id', 'toolbar-containerDark');
       toggle.setAttribute('id', 'dark-mode');
+      toggle.innerText = 'light-mode'
     }
 
     enabled = !enabled
